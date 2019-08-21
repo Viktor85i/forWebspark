@@ -1,0 +1,602 @@
+
+
+// Sass Breakpoint Mixin
+@mixin breakpoint($point) {
+	@if $point == p576 {
+		@media (min-width: 576px) { @content; }
+	}
+	@else if $point == p768 {
+		@media (min-width: 768px) { @content; }
+	}
+	@else if $point == p992 {
+		@media (min-width: 992px) { @content; }
+	}
+	@else if $point == p1200 {
+		@media (min-width: 1200px) { @content; }
+	}
+	@else if $point { // allows custom breakpoints
+		@media (min-width: $point) { @content; }
+	}
+}
+// Customization Bootstrap vars from "app/libs/bootstrap/scss/_variables.scss ,only before @import bootstrap variables!"
+$grid-gutter-width: 30px;
+$grid-columns: 12;
+$grid-breakpoints: (xs: 0, sm: 576px, md: 768px, lg: 992px, xl: 1200px);
+$container-max-widths: (sm: 540px, md: 720px, lg: 960px, xl: 1140px);
+
+$gutter: $grid-gutter-width;
+@import 'fonts';
+//@import '../../node_modules/bootstrap/scss/bootstrap.scss';
+@import 'reset';
+
+//@import '../../node_modules/bootstrap/scss/bootstrap-grid.scss';
+//@import '../../node_modules/bootstrap/scss/variables';
+
+
+body {
+	min-width: 320px;
+	height: 100%;
+	font-size: 16px;
+	background-color: #fff;
+	-webkit-font-smoothing: antialiased;
+}
+img, svg {
+  display: block;
+}
+
+.bg-layout-cover {
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: 50% 50%;
+}
+
+/* input-placeholder */
+input::-webkit-input-placeholder {
+	opacity: 1;
+	transition: opacity 0.3s ease;
+}
+input::-moz-placeholder {
+	opacity: 1;
+	transition: opacity 0.3s ease;
+}
+input:-ms-input-placeholder {
+	opacity: 1;
+	transition: opacity 0.3s ease;
+}
+input:focus::-webkit-input-placeholder {
+	opacity: 0;
+	transition: opacity 0.3s ease;
+}
+input:focus::-moz-placeholder {
+	opacity: 0;
+	transition: opacity 0.3s ease;
+}
+input:focus:-ms-input-placeholder {
+	opacity: 0;
+	transition: opacity 0.3s ease;
+}
+textarea::-webkit-input-placeholder {
+	opacity: 1;
+	transition: opacity 0.3s ease;
+}
+textarea::-moz-placeholder {
+	opacity: 1;
+	transition: opacity 0.3s ease;
+}
+textarea:-ms-input-placeholder {
+	opacity: 1;
+	transition: opacity 0.3s ease;
+}
+textarea:focus::-webkit-input-placeholder {
+	opacity: 0;
+	transition: opacity 0.3s ease;
+}
+textarea:focus::-moz-placeholder {
+	opacity: 0;
+	transition: opacity 0.3s ease;
+}
+textarea:focus:-ms-input-placeholder {
+	opacity: 0;
+	transition: opacity 0.3s ease;
+}
+input::-ms-clear {
+	display: none;
+}
+input::-webkit-search-decoration,
+input::-webkit-search-cancel-button,
+input::-webkit-search-results-button,
+input::-webkit-search-results-decoration {
+	display: none;
+}
+
+ body {
+	width: 100%;
+	height: 100%;
+	max-width: 1622px;
+	 font-family: 'Proxima Nova Rg', sans-serif;
+	margin: 0 auto;
+}
+.container {
+	max-width: 965px;
+	margin: 0 auto;
+	padding-left: 15px;
+	padding-right: 15px;
+	width: 100%;
+}
+/*---------header-----------*/
+header {
+	width: 100%;
+	max-width: 1622px;
+	padding-top: 4px;
+	padding-bottom: 28px;
+	box-shadow: 0 6px 24px rgba(0, 0, 0, 0.06);
+	background-color: #ffffff;
+}
+.header {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: flex-start;
+}
+.logo {
+	margin-left: 55px;
+	margin-right: 50px;
+}
+.header-info {
+	margin-left: 50px;
+	margin-right: auto;
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	justify-content: flex-end;
+	.start-project {
+		display: flex;
+		margin-bottom: 20px;
+		align-items: center;
+		justify-content: flex-start;
+		.title {
+			margin-right: 20px;
+			color: #262626;
+			font-family: 'Myriad Pro', sans-serif;;
+			font-size: 35px;
+			font-weight: 400;
+
+		}
+		.date-start {
+			width: 149px;
+			height: 31px;
+			border-radius: 2px;
+			text-align: center;
+			border: 1px solid #4090db;
+			color: #4090db;
+			font-family: 'Helvetica Neue', sans-serif;;
+			font-size: 15px;
+			line-height: 31px;
+			font-weight: 400;
+		}
+	}
+	.statistics-block {
+		display: flex;
+		margin-bottom: 20px;
+		justify-content: flex-start;
+		.count-item {
+			color: #3d4044;
+			margin-right: 30px;
+			font-family: 'Proxima Nova Rg', sans-serif;
+			font-size: 17px;
+			font-weight: 400;
+			line-height: 24px;
+			.count {
+				font-weight: 700;
+			}
+		}
+	}
+
+}
+.calendar-block {
+	display: flex;
+	flex-wrap: wrap;
+}
+.datepicker {
+	padding-right: 32px;
+}
+.date-from {
+	margin-right: 24px;
+	label {
+		margin-right: 14px;
+		font-family: 'Tahoma', sans-serif;
+		color: #262626;
+		font-size: 17px;
+		font-weight: 400;
+		line-height: 24px;
+	}
+}
+.date-from, .date-to {
+	position: relative;
+	display: flex;
+	align-items: center;
+}
+.close {
+	position: absolute;
+	width: 32px;
+	height: 32px;
+	right: 32px;
+	border: 1px solid #cccccc;
+	background-color: #ebebeb;
+	background: url(../img/svg/close-btn.png) no-repeat 50% 50%;
+}
+
+#from, #to {
+	width: 152px;
+	height: 32px;
+	padding-left: 10px;
+	border-radius: 5px 0 0 5px;
+	box-shadow: inset 0 1px 1px rgba(1, 1, 1, 0.15);
+	border: 1px solid #cccccc;
+	background-color: #ffffff;
+}
+div#ui-datepicker-div.ui-datepicker.ui-widget.ui-widget-content.ui-helper-clearfix.ui-corner-all {
+	box-shadow: 0 5px 8px 1px rgba(1, 1, 1, 0.21), inset 0 0 0 2px rgba(255, 255, 255, 0.79);
+	border: 1px solid #b8b8b8;
+	border-radius: 5px;
+	top: 40px;
+	background-color: #ffffff;
+
+}
+.ui-datepicker-title {
+	color: #333333;
+	font-family: "Helvetica Neue", sans-serif;
+	font-size: 14px;
+	font-weight: 700;
+}
+.ui-datepicker-trigger {
+	width: 32px;
+	height: 32px;
+	color: transparent;
+	border-radius: 0 4px 4px 0;
+	border: 1px solid #cccccc;
+	background-color: #ebebeb;
+	background: url(../img/svg/show-calendar.png) no-repeat 50% 50%;
+}
+.ui-datepicker-unselectable span {
+	color:#999999;
+	margin: 0 auto;
+	line-height: 20px;
+}
+#ui-datepicker-div {
+	position: relative;
+}
+#ui-datepicker-div::before, #ui-datepicker-div::after {
+	content: '';
+	position: absolute;
+	left: 20px;
+	top: -20px;
+	border: 10px solid transparent;
+	border-bottom: 10px solid #b8b8b8;
+}
+.width {
+	width: 13em;
+}
+#ui-datepicker-div::after {
+	border-bottom: 10px solid white;
+	top: -19px;
+}
+.ui-datepicker-calendar  {
+	td {
+		text-align: center;
+		a {
+			margin: 0 auto;
+			font-family: "Helvetica Neue", sans-serif;
+			font-size: 14px;
+			font-weight: 400;
+			width: 25px;
+			text-align: center;
+			height: 25px;
+			line-height: 20px;
+			&:hover {
+				color:#fff;
+				background-color: #4090db;
+				border-radius: 5px;
+			}
+		}
+		a.ui-state-active {
+			color:#fff;
+			background-color: #4090db;
+			border-radius: 5px;
+		}
+		span {
+			margin: 0 auto;
+			line-height: 20px;
+		}
+	}
+}
+.ui-datepicker-next:before {
+	position: absolute;
+	content: '\00bb';
+	width: 10px;
+	height: 20px;
+	color: #333333;
+	font-family: 'Helvetica Neue', sans-serif;
+	font-size: 16px;
+	font-weight: 700;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%,-50%);
+
+}
+
+.ui-datepicker-prev:before {
+	position: absolute;
+	content: '\00ab';
+	width: 10px;
+	height: 20px;
+	color: #333333;
+	font-family: 'Helvetica Neue', sans-serif;
+	font-size: 16px;
+	font-weight: 700;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%,-50%);
+
+}
+.ui-datepicker-other-month span {
+	width: 25px;
+	height: 25px;
+	color: #999999;
+	font-family: "Helvetica Neue", sans-serif;
+	font-size: 14px;
+	font-weight: 400;
+}
+.ui-datepicker-week-end {
+	a {
+		color: #333333;
+		font-family: "Helvetica Neue", sans-serif;
+		font-size: 14px;
+		font-weight: 400;
+		width: 25px;
+		text-align: center;
+		height: 25px;
+		line-height: 20px;
+		background-color: #f5f5f5;
+		border-radius: 4px;
+		&:hover {
+			color:#fff;
+			background-color: #4090db;
+		}
+	}
+
+}
+.ui-datepicker-week-end.ui-datepicker-unselectable {
+	span {
+		color: #333333;
+		font-family: "Helvetica Neue", sans-serif;
+		font-size: 14px;
+		font-weight: 400;
+		width: 25px;
+		text-align: center;
+		height: 25px;
+		line-height: 20px;
+		background-color: #f5f5f5;
+		border-radius: 4px;
+	}
+}
+#ui-datepicker-div .ui-datepicker-current {
+	display: none;
+}
+#ui-datepicker-div .ui-datepicker-close {
+	position: absolute;
+	top: 0;
+	right: 0;
+	border: none;
+	background: transparent;
+	box-shadow: none;
+	text-shadow: none;
+	font-size: 26px;
+	line-height: 1;
+	padding: 3px 8px;
+	color: #cc6a6a;
+	font-weight: 600;
+	opacity: 0.8;
+}
+#ui-datepicker-div .ui-datepicker-close:focus {
+	outline: none;
+}
+#ui-datepicker-div .ui-datepicker-close:hover {
+	opacity: 1;
+}
+@media all and (max-width: 768px) {
+	.header {
+		justify-content: space-around;
+		.logo {
+			margin: 0;
+		}
+		.header-info {
+			margin: 0;
+		}
+	}
+
+}
+@media all and (max-width: 472px) {
+	.header-info {
+		.start-project {
+			flex-wrap: wrap;
+			justify-content: space-around;
+			.title {
+				margin-bottom: 14px;
+			}
+		}
+		.statistics-block {
+			display: flex;
+			width: 100%;
+			margin-bottom: 20px;
+			justify-content: space-between;
+
+			.count-item {
+				color: #3d4044;
+				text-align: center;
+				margin-right: 0px;
+			}
+		}
+		.calendar-block {
+			display: flex;
+			flex-wrap: wrap;
+			align-items: center;
+			justify-content: space-around;
+			.date-from, .date-to {
+				margin-bottom: 10px;
+				margin: 0 10px;
+			}
+		}
+	}
+}
+	/*--------------------------*/
+main {
+	width: 100%;
+	max-width: 1622px;
+	margin: 0 auto;
+	background-color: #fafafa;
+	padding-top: 70px;
+	padding-bottom: 74px;
+}
+.block-description {
+	display: flex;
+	justify-content: space-between;
+	flex-wrap: wrap;
+	margin-bottom: 15px;
+}
+.block-description__item {
+	position: relative;
+	width: 292px;
+	height: 292px;
+	margin-bottom: 30px;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-end;
+	color: #ffffff;
+	font-size: 17px;
+	font-weight: 400;
+
+}
+.video {
+	position: absolute;
+	top: 10px;
+	right: 10px;
+}
+.item1	{
+	background-image: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url(../img/svg/img1.png);
+}
+.item2	{
+	background-image: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url(../img/svg/img2.png);
+}
+.item3	{
+	background-image: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ),  url(../img/svg/img3.png);
+}
+.item4	{
+	background-image: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url(../img/svg/img4.png) ;
+}
+.item5	{
+	background-image: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ),  url(../img/svg/img5.png);
+}
+.item6	{
+	background-image: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ),  url(../img/svg/img6.png);
+}
+.item7	{
+	background-image: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ),  url(../img/svg/img7.png);
+}
+.item8	{
+	background-image: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ),  url(../img/svg/img8.png);
+}
+.item9	{
+	background-image: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url(../img/svg/img9.png);
+}
+.description{
+	width: 222px;
+	margin: 0 auto;
+	margin-bottom: 58px;
+	display: flex;
+	justify-content: space-between;
+	.date {
+		margin-bottom: 22px;
+	}
+	.like {
+		margin-bottom: 22px;
+		a {
+			position: relative;
+			padding-left: 26px;
+			&:before {
+				content: '';
+				width: 20px;
+				height: 20px;
+				position: absolute;
+				top: 50%;
+				transform: translateY(-50%);
+				left: 0;
+				background: url(../img/svg/like.png) no-repeat 50% 50%;
+
+			}
+		}
+	}
+	.message {
+		margin-bottom: 22px;
+		a {
+			position: relative;
+			padding-left: 26px;
+			&:before {
+				content: '';
+				width: 20px;
+				height: 20px;
+				position: absolute;
+				top: 50%;
+				transform: translateY(-50%);
+				left: 0;
+				background: url(../img/svg/message.png) no-repeat 50% 50%;
+
+			}
+		}
+	}
+	.play {
+		margin-bottom: 22px;
+		a {
+			position: relative;
+			padding-left: 26px;
+			&:before {
+				content: '';
+				width: 20px;
+				height: 20px;
+				position: absolute;
+				top: 50%;
+				transform: translateY(-50%);
+				left: 0;
+				background: url(../img/svg/play.png) no-repeat 50% 50%;
+
+			}
+		}
+	}
+}
+.image-upload {
+	text-align: center;
+	margin-bottom: 14px;
+}
+.load-more {
+	width: 100%;
+	text-align: center;
+	margin: 0 auto;
+	button {
+		width: 124px;
+		height: 28px;
+		color: #000000;
+		font-size: 12px;
+		font-weight: 400;
+		line-height: 24px;
+		border-radius: 20px;
+		text-transform: uppercase;
+		border: 1px solid #000000;
+		background-color: #fafafa;
+	}
+}
+@media all and (max-width: 992px) {
+	.block-description {
+		display: flex;
+		justify-content: space-around;
+		flex-wrap: wrap;
+	}
+}
